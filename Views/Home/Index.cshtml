@@ -1,0 +1,39 @@
+﻿<div class="center">
+
+
+<ul id="attributes">
+    <li>Fullness: @ViewBag.Fullness</li>
+    <li>Happieness @ViewBag.Happy</li>
+    <li>Meals: @ViewBag.Meal</li> 
+    <li>Energy: @ViewBag.Energy</li>
+</ul>
+
+<img id="dojodachi" src="images/dojodachi.jpg" alt="Dojodachi with my kids">
+
+@{
+    var txt = "";
+    if(@ViewBag.Fullness <= 0 || @ViewBag.Happy <= 0)
+        {
+            txt = "Your Dojodachi has passed away";
+            <p>@txt</p>
+            <a href="/restart"><button>Restart</button></a>;
+        }
+    else if(@ViewBag.Fullness >= 100 || @ViewBag.Happy >= 100)
+        {
+            txt = "Congratulations, you won!";
+            <p>@txt</p>
+            <a href="/restart"><button>Restart</button></a>;
+        }
+    else
+    {
+        <p id="whatPlay">@ViewBag.WhatPlay</p>
+        <ul id="attributesButtons">
+            <li><a href="/feed"><button>Feed</button></a></li>
+            <li><a href="/play"><button>Play</button></a></li>
+            <li><a href="/work"><button>Work</button></a></li> 
+            <li><a href="/energy"><button>sleep</button></a></li>
+        </ul>
+    }
+}
+</div>
+    
